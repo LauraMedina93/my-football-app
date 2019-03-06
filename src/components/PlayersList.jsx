@@ -1,61 +1,38 @@
 import React from 'react'
-import Player from './Player'
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+  
 
 const PlayersList = (props) => (
-            <table>
-                <thead> 
-                 <th>Player</th>
-                 <th>Position</th>
-                 <th>Team</th>
-                 <th>Age</th>
-                </thead> 
-        
-                <tbody>
-                    <tr>
-                        <td>
-                         {
-                            props.player.map((player, idx) => (
-                                <Player
-                                key={idx}
-                                name={player.name}
-                                />)
-                            )
-                        }  
-                        </td>
-                        <td>
-                        {
-                            props.player.map((player, idx) => (
-                                <Player
-                                key={idx}
-                                position= {player.position}
-                                />)
-                            )
-                        }  
-                        </td> 
-                        <td>
-                        {
-                            props.player.map((player, idx) => (
-                                <Player
-                                key={idx}
-                                team={player.nationality}
-                                />)
-                            )
-                        }  
-                        </td>
-                        <td>
-                        {
-                            props.player.map((player, idx) => (
-                                <Player
-                                key={idx}
-                                age={player.dateOfBirth}
-                                />)
-                            )
-                        }  
-                        </td> 
-                    </tr> 
-                </tbody> 
-            </table>
+            <Table>
+                <TableHead> 
+                    <TableRow>
+                        <TableCell>Player</TableCell>
+                        <TableCell>Position</TableCell>
+                        <TableCell>Team</TableCell>
+                        <TableCell>Age</TableCell>
+                    </TableRow>
+                </TableHead> 
+                <TableBody>
+                {
+                    props.players.map((player, idx) => (
+                        <TableRow key={idx}>
+                            <TableCell>{player.name}</TableCell>
+                            <TableCell>{player.position}</TableCell>
+                            <TableCell>{player.nationality}</TableCell>
+                            <TableCell>{player.age}</TableCell>
+                        </TableRow>)
+                    )
+                }  
+                </TableBody> 
+            </Table>
         )
+          
+
 
 export default PlayersList
 
