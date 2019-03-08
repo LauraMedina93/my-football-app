@@ -1,22 +1,48 @@
-.App {
+#root {
   text-align: center;
 }
-
+h1{
+  color: #808080;
+  font-family: Sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+p{
+  color: #808080;
+  font-family: Sans-serif;
+  font-size: 24px;
+}
 .input-name{
   width: 250px;
   height: 50px;
-  
+  margin-left: 1% !important;
 }
 
 .input-age{
   width: 250px;
   height: 50px;
+  margin-left: 1% !important;
 }
-
 .select{
   width: 250px;
   height: 46px;
   border: solid 1px gray;
   border-radius: 4px;
   margin-top: 9px;
+  margin-left: 1% !important;
+  text-align: initial;
+}
+.button{
+  width: 250px;
+  height: 50px;
+  margin-top: -5px !important;
+  margin-left: 2% !important;
+}
+
+th{
+  background-color: black;  
+  color: #FFFFFF !important;
+  font-family: Sans-serif !important;;
+  font-size: 16px !important;;
+  text-transform: uppercase;
 }

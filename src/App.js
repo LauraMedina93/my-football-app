@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios'
 import FootballPlayers from './components/FootballPlayers'
 import PlayersList from './components/PlayersList'
-import PlayersFilter from './components/PlayersFilter'
+import PlayersFilter, { NONE_VALUE } from './components/PlayersFilter'
 
 
 class App extends Component {
@@ -23,7 +23,6 @@ componentDidMount() {
       .then(res => {
         let players = res.data;
 
-        //Parsed players
         let parsedPlayers = players.map((player, idx) => {
           return {
             id: idx,
@@ -42,10 +41,11 @@ componentDidMount() {
 
 filterPlayers(filters) {
     let filtered = this.state.players.filter((player) => {
+
       return (
-        player.name.toUpperCase().includes(filters.name.toUpperCase()) && 
-        player.age.toString() === filters.age || 
-        player.position === filters.position);
+        (!filters.name || player.name.toUpperCase().includes(filters.name.toUpperCase())) &&
+        (!filters.age || player.age.toString() === filters.age) &&
+        (filters.position === NONE_VALUE || player.position === filters.position));
     })
 
     this.setState({ 

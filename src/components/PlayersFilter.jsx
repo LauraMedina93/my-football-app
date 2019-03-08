@@ -17,7 +17,7 @@ const positions = [
     'Right-Back'
 ];
 
-const NONE_VALUE = "none";
+export const NONE_VALUE = "none";
 
 export default class PlayersFilter extends Component {
     constructor(props){
@@ -72,6 +72,7 @@ export default class PlayersFilter extends Component {
             margin="dense"
             variant="outlined"
             type="text" 
+            pattern = "[A-Za-z]"
             placeholder="Player Name" 
             name="name" 
             value={this.state.name}
@@ -109,7 +110,11 @@ export default class PlayersFilter extends Component {
             onChange={this.onChangeAge}
             />
 
-            <Button onClick={this.onClickFilter} variant="outlined" color="primary"> 
+            <Button 
+            className="button"
+            onClick={this.onClickFilter} 
+            variant="outlined" 
+            color="primary"> 
             Search
             </Button>
         </React.Fragment>
